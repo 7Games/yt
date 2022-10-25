@@ -1,0 +1,43 @@
+.TH yt 1
+.SH NAME
+yt \- Terminal YouTube video player. 
+.SH SYNOPSIS
+.B yt
+[ARGUMENT]
+.SH DESCRIPTION
+yt is a simple POSIX shell script which uses ytsearch (https://github/7Games/ytsearch) and mpv (https://github.com/mpv-player/mpv/) to search Invidious (https://invidious.io) using its API and plays the video all from the terminal. The program can only take 1 argument, anymore and it will take it as a search term.
+.SH OPTIONS
+.TP
+.BR -i,\ --id \ [VIDEO\ ID]
+Takes a video ID and plays it in MPV.
+.TP
+.BR -s,\ --search \ [SEARCH\ TERM] 
+Takes a string and uses it to serch with.
+.TP
+.BR -h,\ --help
+Shows the in built help screen then exits.
+.SH ENVIRONMENT VARIABLES
+.TP
+You can either put these either in your .profile / shell rc file or before the command.
+.TP
+.BR INVIDIOUS_INSTANCE
+The Invidious instance used to search using its API. Make sure that the instance has an enabled API. The var must not have a '/' at the end of the URL. DEFAULT: https://invidious.sevengames.xyz
+.TP
+.BR MPV_ARGUMENTS
+The arguments used by MPV, any argument that can be used with MPV can be put in this var. DEFAULT: --no-terminal
+.SH EXAMPLES
+.TP
+.BR Play\ video\ from\ ID:
+$ yt --id dQw4w9WgXcQ
+.TP
+.BR Search\ for\ video\ with\ argument
+$ yt --search Rust in Linux Kernel
+.TP
+.BR Change\ Invidious\ Instance
+$ INVIDIOUS_INSTANCE="https://invidious.example.com" yt
+.TP
+.BR Change\ MPV\ arguemnts
+$ MPV_ARGUMENTS="--no-terminal --volume=50 --ytdl-format=best[height<=1080]" yt --search Librebooted Thinkpad running OpenBSD
+.SH SEE ALSO
+.BR ytsearch (1),
+.BR mpv (1)
