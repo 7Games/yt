@@ -28,7 +28,7 @@ $ make install_user
 The man page is not installed if you use the user install.
 #### 3. Run the program
 ```
-$ ytsearch -h
+$ yt -h
 yt by 7Games (Benjamin)         
 usage: yt [-h, -i, -s [search]]         
 
