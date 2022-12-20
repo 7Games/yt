@@ -70,7 +70,9 @@ $ INVIDIOUS_INSTANCE="https://invidious.example.com" yt
 $ MPV_ARGUMENTS="--no-terminal --volume=50 --yt-format=best[height<=1080] yt --search Librebooted Thinkpad running OpenBSD        
 ```
 #### Change finder
+```
 $ FINDER="fzf -i +m --cycle"
+```
 <br><br>
 Made by [7Games](https://sevengames.xyz).<br>
 [LICENSE](https://github.com/7Games/ytsearch/blob/main/LICENSE)
