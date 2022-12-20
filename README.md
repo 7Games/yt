@@ -71,7 +71,7 @@ $ MPV_ARGUMENTS="--no-terminal --volume=50 --yt-format=best[height<=1080] yt --s
 ```
 #### Change finder
 ```
-$ FINDER="fzf -i +m --cycle"
+$ FINDER="fzf -i +m --cycle" yt
 ```
 <br><br>
 Made by [7Games](https://sevengames.xyz).<br>
