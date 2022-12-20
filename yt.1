@@ -3,9 +3,9 @@
 yt \- Terminal YouTube video player. 
 .SH SYNOPSIS
 .B yt
-[ARGUMENT]
+[ARGUMENT]..
 .SH DESCRIPTION
-yt is a simple POSIX shell script which uses ytsearch (https://github/7Games/ytsearch) and mpv (https://github.com/mpv-player/mpv/) to search Invidious (https://invidious.io) using its API and plays the video all from the terminal. The program can only take 1 argument, anymore and it will take it as a search term.
+yt is a simple POSIX shell script which uses ytsearch (https://github/7Games/ytsearch) and mpv (https://github.com/mpv-player/mpv/) to search Invidious (https://invidious.io) using its API and plays the video all from the terminal This program only takes one argument unless that argument is the later mentioned "-s"/"--search".
 .SH OPTIONS
 .TP
 .BR -i,\ --id \ [VIDEO\ ID]
@@ -18,13 +18,16 @@ Takes a string and uses it to serch with.
 Shows the in built help screen then exits.
 .SH ENVIRONMENT VARIABLES
 .TP
-You can either put these either in your .profile / shell rc file or before the command.
+You can either put these either in your .profile/shell rc file or before the command.
 .TP
 .BR INVIDIOUS_INSTANCE
-The Invidious instance used to search using its API. Make sure that the instance has an enabled API. The var must not have a '/' at the end of the URL. DEFAULT: https://invidious.sevengames.xyz
+The Invidious instance used to search using its API. Make sure that the instance has an enabled API. The URL must not have a '/' at the end of the URL. DEFAULT: https://invidious.sevengames.xyz
 .TP
 .BR MPV_ARGUMENTS
 The arguments used by MPV, any argument that can be used with MPV can be put in this var. DEFAULT: --no-terminal
+.TP
+.BR FINDER
+This argument will be which "finder" the program can use including its arguments, for now you can either use dmenu or fzf. DEFAULT: dmenu -l 30
 .SH EXAMPLES
 .TP
 .BR Play\ video\ from\ ID:
@@ -38,6 +41,10 @@ $ INVIDIOUS_INSTANCE="https://invidious.example.com" yt
 .TP
 .BR Change\ MPV\ arguemnts
 $ MPV_ARGUMENTS="--no-terminal --volume=50 --ytdl-format=best[height<=1080]" yt --search Librebooted Thinkpad running OpenBSD
+.TP
+.BR Change\ finder
+$ FINDER="fzf -i +m --cycle" yt
 .SH SEE ALSO
 .BR ytsearch (1),
-.BR mpv (1)
+.BR mpv (1),
+.BR fzf (1)
